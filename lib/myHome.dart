@@ -15,6 +15,13 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
   var usernametxt = "";
   final _loginFormKey = GlobalKey<FormState>();
 
+  void validateForm() {
+    if (_loginFormKey.currentState!.validate()) {
+      // You specify things to do when the form validations are all met...
+      print("All validaitons are done");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,24 +38,18 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                 setState(() {
                   usernametxt = val;
                 });
+                //validateForm();
               },
               validator: (value) {
-                if (value!.isEmpty) {
-                  return "Username Field cannot be empty";
+                if (value!.length < 10) {
+                  return "Username has to have atleast 10 characters";
                 }
               },
             ),
             ElevatedButton(
               onPressed: () {
                 // Will have to call the form validations.
-                if (_loginFormKey.currentState!.validate() ) {
-                  // You specify things to do when the form validations are all met...
-                  print("All validaitons are done");
-                }
-                setState(() {
-                  resulttxt = usernameController.text;
-                });
-                print("New Value of resulttxt ===>  " + resulttxt);
+                validateForm();
               },
               child: Text('Run'),
             ),
