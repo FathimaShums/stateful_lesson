@@ -7,7 +7,7 @@ class forminfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.amberAccent,
+      // color: Colors.amberAccent,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -16,8 +16,11 @@ class forminfo extends StatelessWidget {
               Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  "The Student Details",
-                  style: TextStyle(color: Colors.black, fontSize: 32),
+                  "Add Student",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
               Align(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stateful_lesson/babycolumone.dart';
 import 'package:stateful_lesson/custombutton.dart';
 import 'package:stateful_lesson/forminfo.dart';
 import 'package:stateful_lesson/myHome.dart';
@@ -9,17 +10,33 @@ class figmascreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      // appBar: AppBar(),
       body: Container(
-        color: Colors.greenAccent,
+        color: Colors.purpleAccent,
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            forminfo(),
-            MyHomeScreen(thehinttext: "Kavin", theTitle: "Name:"),
-            MyHomeScreen(thehinttext: "Example@gmail.com", theTitle: "Email:"),
-            MyHomeScreen(thehinttext: "20", theTitle: "Age"),
-            mycustombutton(buttontext: "Add Student")
+            Container(
+              color: Colors.amberAccent,
+              margin: EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  forminfo(),
+                  setofinputfields(),
+                  Container(
+                    padding: EdgeInsets.all(10), //3B8FF0
+                    child: mycustombutton(buttontext: "Add Student"),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              color: Colors.blueGrey,
+              child: Column(
+                children: [mycustombutton(buttontext: "Add All")],
+              ),
+            )
           ],
         ),
       ),

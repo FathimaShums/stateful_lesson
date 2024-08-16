@@ -12,13 +12,19 @@ class _mycustombuttonState extends State<mycustombutton> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.min,
+      //mainAxisSize: MainAxisSize.min,
       children: [
         ElevatedButton(
-          //style: ElevatedButton.styleFrom(
-          //iconColor: Color.fromRGBO(59, 143, 255, 1.0)),
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Color.fromRGBO(59, 143, 240, 1),
+              padding: EdgeInsets.fromLTRB(136, 9, 136, 9)),
+          //     iconColor: Color.fromRGBO(59, 143, 255, 1.0)),
+
           onPressed: () {},
-          child: Text(widget.buttontext),
+          child: Text(
+            widget.buttontext,
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ],
     );

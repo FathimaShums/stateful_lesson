@@ -23,7 +23,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     return Form(
       key: _loginFormKey,
       child: Container(
-        color: Colors.pinkAccent,
+        // color: Colors.pinkAccent,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -37,7 +37,10 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
             // Text("Name"),
             TextFormField(
               decoration: InputDecoration(
-                hintStyle: TextStyle(color: Colors.black),
+                hintStyle: TextStyle(
+                    color: Color.fromRGBO(153, 151, 151,
+                        1)), //background: rgba(153, 151, 151, 1);
+
                 hintText: widget.thehinttext,
                 prefixIcon: Padding(
                   padding: EdgeInsets.fromLTRB(12, 14, 12, 14),
