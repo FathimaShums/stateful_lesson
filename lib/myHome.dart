@@ -83,37 +83,6 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                 });
               },
             ),
-            Text(x),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                    padding:
-                        WidgetStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
-                    backgroundColor:
-                        WidgetStateProperty.all<Color>(Colors.green),
-                    shadowColor: WidgetStateProperty.all<Color>(Colors.grey),
-                    elevation: WidgetStateProperty.resolveWith<double>(
-                      (Set<WidgetState> states) {
-                        if (states.contains(WidgetState.pressed)) return 10;
-                        return 5; // default elevation
-                      },
-                    ),
-                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    animationDuration: Duration(milliseconds: 200)),
-                onPressed: () {
-                  if (_loginFormKey.currentState!.validate()) {}
-                  setState(() {
-                    x = tx.text;
-                  });
-                },
-                child: Text('Click'),
-              ),
-            )
           ],
         ),
       ),
