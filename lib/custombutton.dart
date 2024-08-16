@@ -11,11 +11,16 @@ class mycustombutton extends StatefulWidget {
 class _mycustombuttonState extends State<mycustombutton> {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      //style: ElevatedButton.styleFrom(
-      //iconColor: Color.fromRGBO(59, 143, 255, 1.0)),
-      onPressed: () {},
-      child: Text(widget.buttontext),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        ElevatedButton(
+          //style: ElevatedButton.styleFrom(
+          //iconColor: Color.fromRGBO(59, 143, 255, 1.0)),
+          onPressed: () {},
+          child: Text(widget.buttontext),
+        ),
+      ],
     );
   }
 }
