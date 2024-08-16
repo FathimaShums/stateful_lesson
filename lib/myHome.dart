@@ -24,6 +24,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
         body: Form(
       key: _loginFormKey,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Align(
             alignment: Alignment.topLeft,

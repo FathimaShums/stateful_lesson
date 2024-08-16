@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:stateful_lesson/babycolumone.dart';
+import 'package:stateful_lesson/custombutton.dart';
 
 import 'package:stateful_lesson/forminfo.dart';
 import 'package:stateful_lesson/landing.dart';
@@ -36,9 +38,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: MyHomeScreen(
-          theTitle: "Name",
-          thehinttext: "Kavin",
-        ));
+        home: forminfo());
   }
 }

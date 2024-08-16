@@ -8,6 +8,7 @@ class forminfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           const Column(
             children: [
