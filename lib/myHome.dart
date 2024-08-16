@@ -20,8 +20,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Form(
+    return Form(
       key: _loginFormKey,
       child: Container(
         color: Colors.pinkAccent,
@@ -118,6 +117,6 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
           ],
         ),
       ),
-    ));
+    );
   }
 }

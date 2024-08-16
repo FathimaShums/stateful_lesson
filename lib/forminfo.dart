@@ -6,35 +6,33 @@ class forminfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Colors.amberAccent,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Column(
-              children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    "The Student Details",
-                    style: TextStyle(color: Colors.black, fontSize: 32),
-                  ),
+    return Container(
+      color: Colors.amberAccent,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Column(
+            children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "The Student Details",
+                  style: TextStyle(color: Colors.black, fontSize: 32),
                 ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    "please enter student details",
-                    style: TextStyle(
-                        fontSize: 16, color: Color.fromARGB(255, 99, 97, 97)),
-                  ),
-                ), //#999797
-              ],
-            ),
-            //Column(
-            // children: [myinputtitle(thetitle: "Name")],
-          ],
-        ),
+              ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "please enter student details",
+                  style: TextStyle(
+                      fontSize: 16, color: Color.fromARGB(255, 99, 97, 97)),
+                ),
+              ), //#999797
+            ],
+          ),
+          //Column(
+          // children: [myinputtitle(thetitle: "Name")],
+        ],
       ),
     );
   }
