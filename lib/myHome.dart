@@ -4,17 +4,23 @@ import 'package:flutter/material.dart';
 
 class MyHomeScreen extends StatefulWidget {
   const MyHomeScreen(
-      {super.key, required this.thehinttext, required this.theTitle});
+      {super.key,
+      required this.thehinttext,
+      required this.theTitle,
+      required this.onSaved,
+      required this.keyboardType});
   final String theTitle;
   final String thehinttext;
+  final void Function(String?) onSaved;
+  final TextInputType keyboardType;
 
   @override
   State<MyHomeScreen> createState() => _MyHomeScreenState();
 }
 
 class _MyHomeScreenState extends State<MyHomeScreen> {
-  TextEditingController tx = TextEditingController();
-  var x = "";
+  // TextEditingController tx = TextEditingController();
+  // var x = "";
   var email = "";
   final _loginFormKey = GlobalKey<FormState>();
 
@@ -36,6 +42,8 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
             ),
             // Text("Name"),
             TextFormField(
+              keyboardType: widget.keyboardType,
+              onSaved: widget.onSaved,
               decoration: InputDecoration(
                 hintStyle: TextStyle(
                     color: Color.fromRGBO(153, 151, 151,
