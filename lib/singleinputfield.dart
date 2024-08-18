@@ -25,13 +25,12 @@ class _singleinputfieldState extends State<singleinputfield> {
       child: Container(
         child: Column(
           children: [
-            // Align(
-            //     alignment: Alignment.topLeft,
-            //     child:
-            Text(
-              widget.theTitle,
-              style: TextStyle(color: Colors.black, fontSize: 16),
-            ),
+            Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  widget.theTitle,
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                )),
             TextFormField(
               controller: widget.thecontroller,
               decoration: InputDecoration(
