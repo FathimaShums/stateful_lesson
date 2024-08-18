@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:stateful_lesson/babycolumone.dart';
+// ignore: unused_import
 import 'package:stateful_lesson/custombutton.dart';
 import 'package:stateful_lesson/displayform.dart';
-
-import 'package:stateful_lesson/forminfo.dart';
+// globals.dart
 import 'package:stateful_lesson/models/students.dart';
-
-import 'package:stateful_lesson/myinputtitle.dart';
 
 void main() {
   List<Students> thestudentlist = [];

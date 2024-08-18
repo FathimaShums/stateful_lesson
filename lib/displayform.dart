@@ -1,10 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:stateful_lesson/babycolumone.dart';
 import 'package:stateful_lesson/custombutton.dart';
 import 'package:stateful_lesson/forminfo.dart';
 import 'package:stateful_lesson/models/students.dart';
+import 'package:stateful_lesson/secondpage.dart';
 import 'package:stateful_lesson/singleinputfield.dart';
 
 class displayform extends StatefulWidget {
@@ -34,6 +32,7 @@ class _displayformState extends State<displayform> {
           'Student Created: Name: ${student.name}, Email: ${student.email},, Age: ${student.age}');
       widget.thestudentlist.add(student);
       // Print list details to the console (optional)
+
       for (var astudent in widget.thestudentlist) {
         print(
             'Name: ${astudent.name}, Email:${astudent.email},Age: ${astudent.age}');
@@ -44,6 +43,16 @@ class _displayformState extends State<displayform> {
       _ageController.clear();
       _emailController.clear();
     }
+  }
+
+  void NavigatetoList() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => const secondpage(
+                thestudentlist: [],
+              )),
+    );
   }
 
   @override
@@ -60,33 +69,39 @@ class _displayformState extends State<displayform> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    child: forminfo(),
+                  Column(
+                    children: [
+                      Container(
+                        child: forminfo(),
+                      ),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(0, 0, 0, 48),
+                        child: Form(
+                          key: _formKey,
+                          child: Column(
+                            children: [
+                              singleinputfield(
+                                theTitle: "Name:",
+                                thehinttext: "kavin",
+                                thecontroller: _nameController,
+                              ),
+                              singleinputfield(
+                                  theTitle: "Email:",
+                                  thehinttext: "Example@gmail.com",
+                                  thecontroller: _emailController),
+                              singleinputfield(
+                                  theTitle: "Age:",
+                                  thehinttext: "20",
+                                  thecontroller: _ageController),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   Container(
-                      margin: EdgeInsets.fromLTRB(0, 0, 0, 48),
-                      child: Form(
-                        key: _formKey,
-                        child: Column(
-                          children: [
-                            singleinputfield(
-                              theTitle: "Name:",
-                              thehinttext: "kavin",
-                              thecontroller: _nameController,
-                            ),
-                            singleinputfield(
-                                theTitle: "Email:",
-                                thehinttext: "Example@gmail.com",
-                                thecontroller: _emailController),
-                            singleinputfield(
-                                theTitle: "Age:",
-                                thehinttext: "20",
-                                thecontroller: _ageController),
-                          ],
-                        ),
-                      )),
-                  Container(
-                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.fromLTRB(50, 10, 50, 10),
+                    //padding: EdgeInsets.all(10),
                     child: mycustombutton(
                       buttontext: "Add Student",
                       formKey: _formKey,
@@ -96,6 +111,14 @@ class _displayformState extends State<displayform> {
                 ],
               ),
             ),
+            Container(
+              //padding: EdgeInsets.all(),
+              child: mycustombutton(
+                buttontext: "Save All",
+                formKey: _formKey,
+                onPressed: NavigatetoList,
+              ),
+            )
           ],
         ),
       ),

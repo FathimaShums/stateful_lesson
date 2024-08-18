@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stateful_lesson/myinputtitle.dart';
 
 class forminfo extends StatelessWidget {
   const forminfo({super.key});
