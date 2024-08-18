@@ -4,12 +4,12 @@ import 'package:stateful_lesson/custombutton.dart';
 import 'package:stateful_lesson/displayform.dart';
 
 import 'package:stateful_lesson/forminfo.dart';
-import 'package:stateful_lesson/landing.dart';
-import 'package:stateful_lesson/myHome.dart';
+import 'package:stateful_lesson/models/students.dart';
+
 import 'package:stateful_lesson/myinputtitle.dart';
-import 'package:stateful_lesson/thefigmascreen.dart';
 
 void main() {
+  List<Students> thestudentlist = [];
   runApp(const MyApp());
 }
 
@@ -42,7 +42,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: displayform(),
+      home: displayform(
+        thestudentlist: [],
+      ),
       debugShowCheckedModeBanner: false,
     );
   }

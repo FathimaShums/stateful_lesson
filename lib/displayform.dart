@@ -8,7 +8,8 @@ import 'package:stateful_lesson/models/students.dart';
 import 'package:stateful_lesson/singleinputfield.dart';
 
 class displayform extends StatefulWidget {
-  const displayform({super.key});
+  const displayform({super.key, required this.thestudentlist});
+  final List<Students> thestudentlist;
 
   @override
   State<displayform> createState() => _displayformState();
@@ -29,9 +30,14 @@ class _displayformState extends State<displayform> {
         int.parse(_ageController.text),
       );
 
-      // Optional: Print the student object to console
       print(
-          'Student Created: Name: ${student.name}, Age: ${student.age}, Email: ${student.email}');
+          'Student Created: Name: ${student.name}, Email: ${student.email},, Age: ${student.age}');
+      widget.thestudentlist.add(student);
+      // Print list details to the console (optional)
+      for (var astudent in widget.thestudentlist) {
+        print(
+            'Name: ${astudent.name}, Email:${astudent.email},Age: ${astudent.age}');
+      }
 
       // Clear the input fields after submission
       _nameController.clear();
@@ -55,6 +61,9 @@ class _displayformState extends State<displayform> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
+                    child: forminfo(),
+                  ),
+                  Container(
                       margin: EdgeInsets.fromLTRB(0, 0, 0, 48),
                       child: Form(
                         key: _formKey,
@@ -65,17 +74,6 @@ class _displayformState extends State<displayform> {
                               thehinttext: "kavin",
                               thecontroller: _nameController,
                             ),
-                            // Replace setofinputfields() with actual input fields
-                            // TextFormField(
-                            //   controller: _nameController,
-                            //   decoration: InputDecoration(labelText: 'Name'),
-                            //   validator: (value) {
-                            //     if (value == null || value.isEmpty) {
-                            //       return 'Please enter a name';
-                            //     }
-                            //     return null;
-                            //   },
-                            // ),
                             singleinputfield(
                                 theTitle: "Email:",
                                 thehinttext: "Example@gmail.com",
@@ -84,28 +82,6 @@ class _displayformState extends State<displayform> {
                                 theTitle: "Age:",
                                 thehinttext: "20",
                                 thecontroller: _ageController),
-
-                            // TextFormField(
-                            //   controller: _emailController,
-                            //   decoration: InputDecoration(labelText: 'Email'),
-                            //   validator: (value) {
-                            //     if (value == null || value.isEmpty) {
-                            //       return 'Please enter an email';
-                            //     }
-                            //     return null;
-                            //   },
-                            // ),
-                            // TextFormField(
-                            //   controller: _ageController,
-                            //   decoration: InputDecoration(labelText: 'Age'),
-                            //   keyboardType: TextInputType.number,
-                            //   validator: (value) {
-                            //     if (value == null || value.isEmpty) {
-                            //       return 'Please enter an age';
-                            //     }
-                            //     return null;
-                            //   },
-                            // ),
                           ],
                         ),
                       )),
