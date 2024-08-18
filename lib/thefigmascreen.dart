@@ -28,7 +28,7 @@ class figmascreen extends StatelessWidget {
                   // setofinputfields(),
                   Container(
                     padding: EdgeInsets.all(10), //3B8FF0
-                    child: mycustombutton(buttontext: "Add Student"),
+                    // child: mycustombutton(buttontext: "Add Student"),
                   ),
                 ],
               ),

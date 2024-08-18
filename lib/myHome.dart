@@ -85,12 +85,31 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                 errorStyle: TextStyle(color: Colors.redAccent),
               ),
               style: TextStyle(color: Colors.black),
-              validator: (val) => val!.isEmpty || val.length != 10
-                  ? 'Enter a 10 Digit phone number' //Error Message
-                  : null,
+              validator: (val) {
+                if (val == null || val.isEmpty) {
+                  return 'This field cannot be empty';
+                }
+
+                if (widget.theTitle == "Email:") {
+                  // Validate email format
+                  return !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(val)
+                      ? 'Enter a valid email address'
+                      : null;
+                } else if (widget.theTitle == "Age:") {
+                  // Validate age to be a valid integer
+                  int? age = int.tryParse(val);
+                  return age == null || age < 0 ? 'Enter a valid age' : null;
+                }
+
+                // For Name, we can add additional validation if needed
+                return null; // No validation error for Name
+              },
               onChanged: (val) {
                 setState(() {
-                  email = val;
+                  // Update the email variable only for the email field
+                  if (widget.theTitle == "Email:") {
+                    email = val;
+                  }
                 });
               },
             ),

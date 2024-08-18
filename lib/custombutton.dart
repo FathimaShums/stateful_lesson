@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 class mycustombutton extends StatefulWidget {
-  const mycustombutton({super.key, required this.buttontext});
+  const mycustombutton(
+      {super.key,
+      required this.buttontext,
+      required this.onPressed,
+      required this.formKey});
   final String buttontext;
+  final VoidCallback onPressed;
+  final GlobalKey<FormState> formKey;
 
   @override
   State<mycustombutton> createState() => _mycustombuttonState();
@@ -21,8 +27,10 @@ class _mycustombuttonState extends State<mycustombutton> {
           //     iconColor: Color.fromRGBO(59, 143, 255, 1.0)),
 
           onPressed: () {
-            //submitData;
-            print("clicked the button");
+            if (widget.formKey.currentState!.validate()) {
+              widget.formKey.currentState!.save();
+              widget.onPressed();
+            }
           },
           child: Text(
             widget.buttontext,

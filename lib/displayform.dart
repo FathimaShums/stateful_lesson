@@ -12,32 +12,34 @@ class displayform extends StatefulWidget {
 }
 
 class _displayformState extends State<displayform> {
-  @override
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final String _thename = '';
-  final int _theage = 0;
-  final String _theemail = '';
-  submitData() {
-    if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
+  void submitData() {
+    if (_formKey.currentState!.validate()) {
       // Create a Student object
-      Students student = Students(_thename, _theemail, _theage);
+      Students student = Students(
+        _nameController.text,
+        _emailController.text,
+        int.parse(_ageController.text),
+      );
 
       // Optional: Print the student object to console
       print(
           'Student Created: Name: ${student.name}, Age: ${student.age}, Email: ${student.email}');
 
-      // Clear the input values after submission
-      // _thename = '';
-      // _theage = 0;
-      // _theemail = '';
+      // Clear the input fields after submission
+      _nameController.clear();
+      _ageController.clear();
+      _emailController.clear();
     }
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(),
       body: Container(
         color: Colors.purpleAccent,
         child: Column(
@@ -51,21 +53,57 @@ class _displayformState extends State<displayform> {
                 children: [
                   Container(
                       margin: EdgeInsets.fromLTRB(0, 0, 0, 48),
-                      child: forminfo()),
-                  setofinputfields(),
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          children: [
+                            // Replace setofinputfields() with actual input fields
+                            TextFormField(
+                              controller: _nameController,
+                              decoration: InputDecoration(labelText: 'Name'),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter a name';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            TextFormField(
+                              controller: _emailController,
+                              decoration: InputDecoration(labelText: 'Email'),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter an email';
+                                }
+                                return null;
+                              },
+                            ),
+                            TextFormField(
+                              controller: _ageController,
+                              decoration: InputDecoration(labelText: 'Age'),
+                              keyboardType: TextInputType.number,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter an age';
+                                }
+                                return null;
+                              },
+                            ),
+                          ],
+                        ),
+                      )),
                   Container(
-                    padding: EdgeInsets.all(10), //3B8FF0
-                    child: mycustombutton(buttontext: "Add Student"),
+                    padding: EdgeInsets.all(10),
+                    child: mycustombutton(
+                      buttontext: "Add Student",
+                      formKey: _formKey,
+                      onPressed: submitData,
+                    ),
                   ),
                 ],
               ),
             ),
-            // Container(
-            //   color: Colors.blueGrey,
-            //   child: Column(
-            //     children: [mycustombutton(buttontext: "Add All")],
-            //   ),
-            // )
           ],
         ),
       ),
