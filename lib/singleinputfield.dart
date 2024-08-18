@@ -27,10 +27,11 @@ class _singleinputfieldState extends State<singleinputfield> {
           children: [
             // Align(
             //     alignment: Alignment.topLeft,
-            //     child: Text(
-            //       widget.theTitle,
-            //       style: TextStyle(color: Colors.black, fontSize: 16),
-            //     )),
+            //     child:
+            Text(
+              widget.theTitle,
+              style: TextStyle(color: Colors.black, fontSize: 16),
+            ),
             TextFormField(
               controller: widget.thecontroller,
               decoration: InputDecoration(
