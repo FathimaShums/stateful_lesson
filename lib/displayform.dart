@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:stateful_lesson/babycolumone.dart';
 import 'package:stateful_lesson/custombutton.dart';
 import 'package:stateful_lesson/forminfo.dart';
 import 'package:stateful_lesson/models/students.dart';
+import 'package:stateful_lesson/singleinputfield.dart';
 
 class displayform extends StatefulWidget {
   const displayform({super.key});
@@ -57,39 +60,52 @@ class _displayformState extends State<displayform> {
                         key: _formKey,
                         child: Column(
                           children: [
+                            singleinputfield(
+                              theTitle: "Name:",
+                              thehinttext: "kavin",
+                              thecontroller: _nameController,
+                            ),
                             // Replace setofinputfields() with actual input fields
-                            TextFormField(
-                              controller: _nameController,
-                              decoration: InputDecoration(labelText: 'Name'),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter a name';
-                                }
-                                return null;
-                              },
-                            ),
+                            // TextFormField(
+                            //   controller: _nameController,
+                            //   decoration: InputDecoration(labelText: 'Name'),
+                            //   validator: (value) {
+                            //     if (value == null || value.isEmpty) {
+                            //       return 'Please enter a name';
+                            //     }
+                            //     return null;
+                            //   },
+                            // ),
+                            singleinputfield(
+                                theTitle: "Email:",
+                                thehinttext: "Example@gmail.com",
+                                thecontroller: _emailController),
+                            singleinputfield(
+                                theTitle: "Age:",
+                                thehinttext: "20",
+                                thecontroller: _ageController),
 
-                            TextFormField(
-                              controller: _emailController,
-                              decoration: InputDecoration(labelText: 'Email'),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter an email';
-                                }
-                                return null;
-                              },
-                            ),
-                            TextFormField(
-                              controller: _ageController,
-                              decoration: InputDecoration(labelText: 'Age'),
-                              keyboardType: TextInputType.number,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter an age';
-                                }
-                                return null;
-                              },
-                            ),
+                            // TextFormField(
+                            //   controller: _emailController,
+                            //   decoration: InputDecoration(labelText: 'Email'),
+                            //   validator: (value) {
+                            //     if (value == null || value.isEmpty) {
+                            //       return 'Please enter an email';
+                            //     }
+                            //     return null;
+                            //   },
+                            // ),
+                            // TextFormField(
+                            //   controller: _ageController,
+                            //   decoration: InputDecoration(labelText: 'Age'),
+                            //   keyboardType: TextInputType.number,
+                            //   validator: (value) {
+                            //     if (value == null || value.isEmpty) {
+                            //       return 'Please enter an age';
+                            //     }
+                            //     return null;
+                            //   },
+                            // ),
                           ],
                         ),
                       )),
