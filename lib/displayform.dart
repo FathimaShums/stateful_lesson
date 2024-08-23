@@ -28,17 +28,11 @@ class _displayformState extends State<displayform> {
         int.parse(_ageController.text),
       );
 
-      print(
-          'Student Created: Name: ${student.name}, Email: ${student.email},, Age: ${student.age}');
+      // print(
+      //     'Student Created: Name: ${student.name}, Email: ${student.email},, Age: ${student.age}');
       widget.thestudentlist.add(student);
-      // Print list details to the console (optional)
 
-      for (var astudent in widget.thestudentlist) {
-        print(
-            'Name: ${astudent.name}, Email:${astudent.email},Age: ${astudent.age}');
-      }
-
-      // Clear the input fields after submission
+      // Clear input fields after submission
       _nameController.clear();
       _ageController.clear();
       _emailController.clear();
@@ -46,25 +40,30 @@ class _displayformState extends State<displayform> {
   }
 
   void NavigatetoList() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-          builder: (context) => const secondpage(
-                thestudentlist: [],
-              )),
-    );
+    for (var astudent in widget.thestudentlist) {
+      print(
+          'Name: ${astudent.name}, Email:${astudent.email},Age: ${astudent.age}');
+    }
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(
+    //       builder: (context) => const secondpage(
+    //             thestudentlist: [],
+    //           )),
+    // )
+    ;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.purpleAccent,
+        // color: Colors.purpleAccent,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              color: Colors.amberAccent,
+              // color: Colors.amberAccent,
               margin: EdgeInsets.all(20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

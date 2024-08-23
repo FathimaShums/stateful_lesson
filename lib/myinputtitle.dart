@@ -9,14 +9,14 @@ class myinputtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          color: Colors.amberAccent,
+          // color: Colors.amberAccent,
           child: Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              thetitle,
-              style: TextStyle(color: Colors.black, fontSize: 16),
-            ),
-          )),
+        alignment: Alignment.topLeft,
+        child: Text(
+          thetitle,
+          style: TextStyle(color: Colors.black, fontSize: 16),
+        ),
+      )),
     );
   }
 }
